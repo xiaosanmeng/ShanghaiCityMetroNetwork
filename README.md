@@ -22,25 +22,15 @@ Shrink_Nodes=Shrink_Matrix(Topology_Nodes,Select_ID);
 test_12_26.m相关代码段
 ```
 fname='sh1';
-
 Weight_Matrix=load([fname,'.txt']);
-
 Row=zeros(length(Weight_Matrix(:,1))*2,1);
-
 Row(1:end)=[Weight_Matrix(:,1);Weight_Matrix(:,2)];
-
 Col=zeros(length(Weight_Matrix(:,1))*2,1);
-
 Col(1:end)=[Weight_Matrix(:,2);Weight_Matrix(:,1)];
-
 Weight=ones(length(Weight_Matrix(:,1))*2,1);
-
 Topology_Nodes=spconvert([Row,Col,Weight]);
-
 [Vertex_Component,Component_num]=IS_Connection(Topology_Nodes);%?????????????????? 
-
 Comp_num=get_component_num(Vertex_Component,Component_num);
- 
 Shrink_Nodes=Shrink_Matrix(Topology_Nodes,Select_ID);
 
 
@@ -50,13 +40,9 @@ Shrink_Nodes=Shrink_Matrix(Topology_Nodes,Select_ID);
 ```
 %save vertices and edges shown in Saved_ID,transform Nodes to 
 Shrink_Nodes
-
 %Input: Nodes--N*N adjacent matrix
-
 %       Saved_ID--Shrink_N*1 vector,Saved_ID(i) is the ID in Nodes which
-
 %                 will be saved into Shrink_Nodes
-
 %Output:Shrink_Nodes--Shrink_N*Shrink_N adjacent matrix
 ```
 
@@ -92,24 +78,15 @@ in C:\Users\tianyu\Desktop\毕业设计\上海\程序\Dijkstra.dll
 
 ```
 while nnz(Vertex_Component==0)>0
-
     ID=find(Vertex_Component==0);
-
     [Vertex_D,Vertex_P]=Dijkstra(S_Nodes,ID(1));
-
     Component_ID=Component_ID+1;
-
     for i=1:N
-
         if Vertex_D(i)<100000000%100000000 set in funciton dijkstra, 
 denote seperation!
-
             Vertex_Component(i)=Component_ID;
-
         end
-
     end
-
 end
 
 
@@ -129,7 +106,6 @@ MEX-files with .dll extensions will not execute in a future version of MATLAB.
 
 ```
 Cannot find an exact (case-sensitive) match for 'Get_vertex_BC'
-
 The closest match is: Get_Vertex_BC
 in C:\Users\tianyu\Desktop\毕业设计\上海\程序\Get_Vertex_BC.m
 
